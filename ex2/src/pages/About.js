@@ -1,3 +1,10 @@
+/**
+ * About component - Displays information about the application
+ *
+ * This is a simple static page that explains the purpose and functionality
+ * of the weather application. It appears when users navigate to the '/about' route.
+ */
+
 function About() {
     return (
       <div>

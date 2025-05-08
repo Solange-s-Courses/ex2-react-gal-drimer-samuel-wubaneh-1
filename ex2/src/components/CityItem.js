@@ -1,3 +1,11 @@
+/**
+ * CityItem  - Displays individual city card
+ *
+ * Presents city information with interactive controls for:
+ * - Toggling favorite status
+ * - Initiating edit mode
+ * - Deleting the city
+ */
 import React from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 

@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
+/**
+ * EditCity  - Specialized form for city modifications
+ *
+ * Features:
+ * - Pre-populates with existing city data
+ * - Validates required fields
+ * - Preserves original city name for reference
+ */
 function EditCity({ city, onEditCity, onCancel }) {
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');

@@ -4,6 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';//להוסיף בשביל העיצוב
+/**
+ * Application entry point - Initializes the React application
+ *
+ * Key responsibilities:
+ * - Sets up the React root container
+ * - Imports global CSS (Bootstrap)
+ * - Wraps the App in StrictMode for development checks
+ * - Initializes performance monitoring
+ */
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

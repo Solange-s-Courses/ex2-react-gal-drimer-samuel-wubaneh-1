@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react';
 import WeatherService from '../services/WeatherService';
+/**
+ * Favorites component - Displays and manages favorite cities
+ *
+ * Shows a list of cities marked as favorites with the ability to:
+ * - Fetch and display weather forecasts for each city
+ * - Handle loading states during API requests
+ * - Maintain real-time sync with localStorage data
+ */
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
   const [forecast, setForecast] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // Load favorite cities from localStorage on component mount
   useEffect(() => {
     const all = JSON.parse(localStorage.getItem('cities') || '[]');
     setFavorites(all.filter(c => c.favorite));
   }, []);
 
+  /**
+   * Fetches weather forecast for a specific city
+   */
   const fetchForecast = async (city) => {
     setLoading(true);
     const data = await WeatherService.getWeather(city.longitude, city.latitude);

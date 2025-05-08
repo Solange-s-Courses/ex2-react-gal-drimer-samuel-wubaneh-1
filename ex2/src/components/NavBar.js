@@ -1,6 +1,13 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+/**
+ * NavBar  - Application navigation header
+ *
+ * Features:
+ * - Responsive Bootstrap navbar
+ * - Dark theme styling
+ * - Router-integrated navigation links
+ */
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

@@ -1,3 +1,11 @@
+
+/**
+ * WeatherService - Handles weather data fetching and processing
+ *
+ * Provides methods to retrieve weather forecasts from the 7timer API
+ * and transform the data into a more usable format for the application.
+ */
+
 const WeatherService = {
     async getWeather(lon, lat) {
       const url = `https://www.7timer.info/bin/api.pl?lon=${lon}&lat=${lat}&product=civillight&output=json`;

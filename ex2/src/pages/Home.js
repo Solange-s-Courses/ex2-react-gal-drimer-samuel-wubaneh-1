@@ -5,6 +5,16 @@ import { useLocation } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import EditCity from '../components/EditCity';
 
+/**
+ * Home component - Main application screen
+ *
+ * Manages the core functionality including:
+ * - City list state management
+ * - CRUD operations for cities
+ * - Search and filtering capabilities
+ * - LocalStorage synchronization
+ */
+
 function Home() {
   const location = useLocation();
   const [cities, setCities] = useState([]);//רשימה של כל המדינות
@@ -12,12 +22,12 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');//משתנה ששומר את מילת החיפוש של שם העיר או המדינה
   const [cityToEdit, setCityToEdit] = useState(null);//משתנה להצגת הטופס עריכה או להסתרתו
 
-  // אפקט עבור חיפוש מחדש כשמשתנים הנתיב
+  // Reset search when route changes
   useEffect(() => {
     setSearchTerm('');
   }, [location.pathname]);
 
-  // טעינת הערים מה-`localStorage` או קובץ JSON
+  // Initialize cities from localStorage or JSON file
   useEffect(() => {
     const saved = localStorage.getItem('cities');
     if (saved) {
@@ -27,22 +37,22 @@ function Home() {
         .then(res => res.json())
         .then(data => setCities(data));
     }
-  }, []); // הטעינה תתבצע רק פעם אחת כשמרעננים את הדף
+  }, []); //loading after refresh
 
-  // שמירת הערים ב-`localStorage` כל פעם שמשתנה המידע
+  // Persist cities to localStorage when they change
   useEffect(() => {
     if (cities.length > 0) {
       localStorage.setItem('cities', JSON.stringify(cities));
     }
   }, [cities]); // שמירה ב-`localStorage` כל פעם שהערים משתנות
 
-  // הוספת עיר לרשימה
+  //Adds a new city to the list
   const addCity = (city) => setCities(prev => [...prev, city]);
 
-  // מחיקת עיר מהמערכת
+  // Deletes a city
   const deleteCity = (name) => setCities(prev => prev.filter(c => c.name !== name));
 
-  // הפיכת עיר למועדפת
+  // Toggles favorite status for a city
   const toggleFavorite = (name) => {
     setCities(prev => {
       const updatedCities = prev.map(c =>
@@ -51,7 +61,7 @@ function Home() {
       return updatedCities;
     });
   };
-
+  // Edit city that exist in the system
   const handleEditCity = (updatedCity, originalName) => {
     const updatedCities = cities.map(c =>
       c.name === originalName ? updatedCity : c
@@ -61,9 +71,9 @@ function Home() {
     setCities(updatedCities);
     setCityToEdit(null);
   };
-  
-  
-  // סינון הערים על פי שם העיר או המדינה
+
+
+  // Filter cities based on city name or country name
   const filtered = cities.filter(c => {
     if (!c || !c.country || !c.name) return false;
     return c.country.toLowerCase().includes(searchTerm.toLowerCase()) ||

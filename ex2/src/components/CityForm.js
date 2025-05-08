@@ -1,4 +1,13 @@
 import React, { useState, useEffect } from 'react';
+/**
+ * CityForm - Handles city creation and editing
+ *
+ * A controlled form component that:
+ * - Manages form state for city attributes
+ * - Validates input according to business rules
+ * - Fetches country list from external API
+ * - Supports both add and edit modes
+ */
 
 function CityForm({ onAddCity, onCancel, city, onEditCity }) {
   const [name, setName] = useState('');
@@ -9,6 +18,7 @@ function CityForm({ onAddCity, onCancel, city, onEditCity }) {
   const [countries, setCountries] = useState([]);
   const [errors, setErrors] = useState({});
 
+  // Fetch country list on component mount
   useEffect(() => {
     fetch('https://api.first.org/data/v1/countries')
       .then(res => res.json())
@@ -18,6 +28,7 @@ function CityForm({ onAddCity, onCancel, city, onEditCity }) {
       });
   }, []);
 
+  // add info to form when editing
   useEffect(() => {
     if (city) {
       setName(city.name);
@@ -69,7 +80,7 @@ function CityForm({ onAddCity, onCancel, city, onEditCity }) {
 
     city ? onEditCity(newCity) : onAddCity(newCity);
 
-    // Clear form
+// Resets form to initial state
     setName('');
     setCountry('');
     setFavorite(false);
