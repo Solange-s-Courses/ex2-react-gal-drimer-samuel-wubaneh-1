@@ -1,0 +1,11 @@
+[
+    { "name": "Paris", "country": "France", "longitude": 2.35, "latitude": 48.85 },
+    { "name": "New York", "country": "USA", "longitude": -74.0059, "latitude": 40.7128 },
+    { "name": "London", "country": "England", "longitude": -0.1278, "latitude": 51.5074 },
+    { "name": "Madrid", "country": "Spain", "longitude": -3.6833, "latitude": 40.4167 },
+    { "name": "Rome", "country": "Italy", "longitude": 12.5, "latitude": 41.9 },
+    { "name": "Berlin", "country": "Germany", "longitude": 13.4, "latitude": 52.52 },
+    { "name": "Tokyo", "country": "Japan", "longitude": 139.69, "latitude": 35.68 },
+    { "name": "Jerusalem", "country": "Israel", "longitude": 35.23, "latitude": 31.78 }
+  ]
+  
