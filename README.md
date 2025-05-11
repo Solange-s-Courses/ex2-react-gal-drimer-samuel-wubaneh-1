@@ -4,7 +4,7 @@
 <p> Email: galdr@edu.jmc.ac.il</p>
 
 <h1>Name:Samuel  ID:33786685</h1>
-<p>Email: samualwa@eedu.jmc.ac.il</p>
+<p>Email: samualwa@edu.jmc.ac.il</p>
 
 <h1>map of the program:</h1>
 <pre>
